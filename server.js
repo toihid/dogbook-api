@@ -6,7 +6,10 @@ import Dogs from "./Dogs.js";
 import multer from "multer";
 import path from "path";
 
-const PORT = 3000;
+import dotenv from "dotenv";
+dotenv.config();
+
+const PORT = process.env.PORT || 3000;
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -150,8 +153,8 @@ app.delete("/dogs/:id", async (req, res) => {
 });
 
 const main = async () => {
-  let mongoDbAtlus =
-    "mongodb+srv://toihid:mongodb24@cluster0.lp0pl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+  let mongoDbAtlus = process.env.MONGODB_URI;
+
   let mongoDbLocal = "mongodb://127.0.0.1:27017/dogsDB";
 
   try {

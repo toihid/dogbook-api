@@ -156,6 +156,11 @@ const main = async () => {
   console.log("Connecting to Mongo URI:", process.env.MONGODB_URI);
   let mongoDbLocal = "mongodb://127.0.0.1:27017/dogsDB";
 
+  if (!mongoDbAtlus) {
+    mongoDbAtlus =
+      "mongodb+srv://toihid:mongodb24@cluster0.lp0pl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+  }
+
   try {
     await mongoose
       .connect(mongoDbAtlus)

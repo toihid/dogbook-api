@@ -1,3 +1,5 @@
+import dotenv from "dotenv";
+dotenv.config();
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
@@ -5,9 +7,6 @@ import Dogs from "./Dogs.js";
 
 import multer from "multer";
 import path from "path";
-
-import dotenv from "dotenv";
-dotenv.config();
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -158,7 +157,7 @@ const main = async () => {
   let mongoDbLocal = "mongodb://127.0.0.1:27017/dogsDB";
 
   try {
-    mongoose
+    await mongoose
       .connect(mongoDbAtlus)
       .then(() => {
         console.log("Successfully connected to MongoDB");
